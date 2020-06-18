@@ -22,7 +22,7 @@ def layout(texto: str):
     print("|" + "=" * 35 + "|\n")
 
 
-def grausRadFracao(grau):
+def grausRadFracao(grau: float):
     """
     Transforma o angulo em graus para radianos em forma de fração com o
     simbolo π
@@ -42,9 +42,8 @@ def grausRadFracao(grau):
             return divisao[:divisao.find("/")] + "𝜋" + divisao[divisao.find("/"):]
 
 
-# inicio do programa
-layout("FUNÇÕES TRIGONOMÉTRICAS")
-angulo = float(input("  >> DIGITE O VALOR DO ÂNGULO: "))
+layout("FUNÇÕES TRIGONOMÉTRICAS")   # Chamando cabeçalho
+angulo = float(input("  >> DIGITE O VALOR DO ÂNGULO: "))    # Input valor
 
 seno = math.sin(convGrausRad(angulo))    # Calculando seno
 cos = math.cos(convGrausRad(angulo))    # Calculando cosseno
@@ -52,8 +51,7 @@ tan = math.tan(convGrausRad(angulo))    # Calulando tangente
 rad = convGrausRad(12)    # Transformando graus para radianos
 
 print()
-layout("RESULTADOS")
+layout("RESULTADOS")    # Chamando cabeçalho
 print(f' > Para o angulo {angulo}:\n    Seno = {seno:.2f}\n    Cosseno = '
       f'{cos:.2f}\n    Tangente = {tan:.2f}\n    Radianos = '
       f'{convGrausRad(angulo):.2f} ou {grausRadFracao(angulo)}')
-
