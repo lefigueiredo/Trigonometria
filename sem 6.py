@@ -1,4 +1,5 @@
-import math
+import math    # Biblioteca math para calculos
+from fractions import Fraction    # Bilioteca fractions para fração
 
 
 def convGrausRad(valor: float):  # Graus para Radianos
@@ -21,6 +22,18 @@ def layout(texto: str):
     print("|" + "=" * 35 + "|\n")
 
 
+def grausRadFracao(valora):
+    divisao = str(Fraction(valora) / Fraction(180, 1))
+    if divisao.count("/") < 1:
+        if divisao == "1":
+            return "𝜋"
+    else:
+        if divisao[:divisao.find("/")] == "1":
+            return "𝜋" + divisao[divisao.find("/"):]
+        else:
+            return divisao[:divisao.find("/")] + "𝜋" + divisao[divisao.find("/"):]
+
+
 # inicio do programa
 layout("FUNÇÕES TRIGONOMÉTRICAS")
 angulo = float(input("  >> DIGITE O VALOR DO ÂNGULO: "))
@@ -31,6 +44,7 @@ rad = convGrausRad(12)    # Transformando graus para radianos
 
 print()
 layout("RESULTADOS")
-print(f' > Para o angulo {angulo}:\n    Seno = {seno:.2f}\n    Cosseno = {cos:.2f}\n     Radianos = {convGrausRad(angulo):.2f}')
-
+print(f' > Para o angulo {angulo}:\n    Seno = {seno:.2f}\n    Cosseno = '
+      f'{cos:.2f}\n    Radianos = {convGrausRad(angulo):.2f} ou '
+      f'{grausRadFracao(angulo)}')
 
